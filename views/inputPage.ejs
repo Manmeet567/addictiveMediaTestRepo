@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/inputPage.css">
+    <title>Input Page</title>
+</head>
+<body>
+    <main>
+    <div class="nb-content">
+        <form action="/incomingData" method="post" enctype="multipart/form-data">
+            <p>Input Page</p>
+            <div class="nh-border"></div>
+            <div class="inf">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter name" required>
+            </div>
+            <div class="inf">
+                <label for="dob">Date of Birth</label>
+                <input type="date" name="dob" id="dob" placeholder="Enter Title" required>
+            </div>
+            <div class="inf">
+                <label for="resume">Upload resume (PDF format)</label>
+                <input type="file" name="resume" accept="application/pdf" required>
+            </div>
+            <div class="sf">
+                <div class="fBranch">
+                    <label for="country">Select country</label>
+                    <select name="country" id="country">
+                        
+                        <% country_list.forEach(country => { %>
+                            <option value="<%= country %>"><%= country %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                
+            </div>
+            <input class="sub-btn" type="submit" value="Create">
+            <a href="/listingPage" style="margin-left: 40px; font-size:30px">Listing Page</a>
+        </form>
+    
+    </div>
+    </main>
+
+    <footer><h1>I am still working on finding a way to convert BLOB datatype into a pdf file.</h1>
+    <h1>And also everytime you reload the webpage, the database is going to be empty. (Because freemysqlhosting.net is providing only 5mb of free space).</h1>
+    <h1>All other functionality is working fine.</h1>
+    <h1>REGARDS : MANMEET SINGH</h1>
+</footer>
+</body>
+</html>

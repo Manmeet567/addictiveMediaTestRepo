@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Page</title>
+</head>
+<body>
+    <a href="/" style="font-size: 30px;">Add new</a>
+    <a href="/listingPage/sortByName" style="margin-left: 50px; font-size:30px">Sort by Name</a>
+    <a href="/listingPage" style="margin-left: 50px; font-size:30px">Sort by CreatedAT</a>
+    <% if(data.length != 0){ %>
+        <% data.forEach(result => { %>
+            <div class="info">
+                <p><%= result.dataValues.id %></p>
+                <p>NAME : <%= result.dataValues.name %></p>
+                <p>DATE OF BIRTH : <%= result.dataValues.dob %></p>
+                <a href="/resume/<%= result.dataValues.id %>">Open Resume</a>
+                <p>COUNTRY : <%= result.dataValues.country %></p>
+
+                <a href="/delete/<%= result.dataValues.id %>">Delete</a>
+                <br>
+            </div>
+        <% }) %>
+    <% }else{ %>
+        <p>No data to display</p>
+    <% } %>
+</body>
+</html>
